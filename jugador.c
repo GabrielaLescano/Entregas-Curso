@@ -7,7 +7,7 @@ const float DEF_FUERZA_PSIQUICA = -1.0F;
 
 
 int main(){
-
+	comenzar_enfrentamiento();
 	
 	return 0;
 }
