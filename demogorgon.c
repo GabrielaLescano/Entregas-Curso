@@ -1,9 +1,10 @@
 #include "demogorgon.h"
 
-#define MSJ_ENFRENTAMIENTO "\n\nEl enfrentamiento esta por comenzar\n"
 
-#define MSJ_MAL_INGRESO "Ingreso no valido\n"
-#define MSJ_ANIMO "Ingrese el animo de El(Eleven) en un rango del 1 al 100 inclusive\n"
+#define MSJ_ENFRENTAMIENTO "\n\nEl enfrentamiento est%c por comenzar\n"
+
+#define MSJ_MAL_INGRESO "Ingreso no v%clido\n"
+#define MSJ_RECIBIR_ANIMO "\nIngrese el %cnimo de El(Eleven) en un rango del 1 al 100 inclusive\n"
 
 const int DEF_ANIMO = 0;
 const int MIN_ANIMO = 1;
@@ -12,7 +13,7 @@ const int MAX_ANIMO = 100;
 const bool ANIMO_VERIFICADO = true;
 const bool ANIMO_NO_VERIFICADO = false;
 
-#define MSJ_CONFIANZA "Ingrese el nivel de confianza que tiene El(Eleven) con sus amigos\nBajo [b] - Medio [m] - Alto [a]\n"
+#define MSJ_RECIB_CONFIANZA "Ingrese el nivel de confianza que tiene El(Eleven) con sus amigos\nBajo [b] - Medio [m] - Alto [a]\n"
 
 const char DEF_NIVEL_CONFIANZA = 'z';
 #define CONFIANZA_BAJA 'b'
@@ -47,12 +48,29 @@ const float VALOR_GANO_JUSTO = 65.0F;
 
 
 void comenzar_enfrentamiento(){
-	
-	printf(MSJ_ENFRENTAMIENTO);
+
+	printf(MSJ_ENFRENTAMIENTO,160);
+	//160 = á
 }
-/*
+
 int recibir_animo(){
+	int animo_recibido;
+	do{
+		printf(MSJ_RECIBIR_ANIMO,160);
+		scanf("%i", &animo_recibido);
+
+		if( (animo_recibido>=MIN_ANIMO)||(animo_recibido<=MAX_ANIMO) ){
+		printf (MSJ_MAL_INGRESO,160);
+		}else{
+			printf("Ingreso aceptado\n");
+		}
+	}while (!(animo_recibido>=MIN_ANIMO)||(animo_recibido<=MAX_ANIMO));
+	
+	return animo_recibido;
 }
+
+/*
+
 bool verificar_animo_recib(int animo_verificar){
 }
 char recibir_confianza(){
