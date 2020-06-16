@@ -12,6 +12,7 @@ int main(){
 	comenzar_enfrentamiento();
 	animo = recibir_animo();
 	printf("%cnimo recibido: %i",181, animo);
-	
+	nivel_confianza = recibir_confianza();
+	printf("\nConfianza recibida: %c\n", nivel_confianza);
 	return 0;
 }
