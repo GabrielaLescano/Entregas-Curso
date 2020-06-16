@@ -54,17 +54,18 @@ void comenzar_enfrentamiento(){
 }
 
 int recibir_animo(){
-	int animo_recibido;
+	int animo_recibido = DEF_ANIMO;
 	do{
+
 		printf(MSJ_RECIBIR_ANIMO,160);
 		scanf("%i", &animo_recibido);
 
-		if( (animo_recibido>=MIN_ANIMO)||(animo_recibido<=MAX_ANIMO) ){
+		if( (animo_recibido < MIN_ANIMO ) || (animo_recibido > MAX_ANIMO) ){
 		printf (MSJ_MAL_INGRESO,160);
 		}else{
 			printf("Ingreso aceptado\n");
 		}
-	}while (!(animo_recibido>=MIN_ANIMO)||(animo_recibido<=MAX_ANIMO));
+	}while ( (animo_recibido < MIN_ANIMO) || (animo_recibido > MAX_ANIMO) );
 	
 	return animo_recibido;
 }
