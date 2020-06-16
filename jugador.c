@@ -7,7 +7,11 @@ const float DEF_FUERZA_PSIQUICA = -1.0F;
 
 
 int main(){
+	int animo = DEF_ANIMO_JUGADOR;
+
 	comenzar_enfrentamiento();
-	recibir_animo();
+	animo = recibir_animo();
+	printf("%cnimo recibido: %i",181, animo);
+	
 	return 0;
 }
