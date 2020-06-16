@@ -70,14 +70,25 @@ int recibir_animo(){
 	return animo_recibido;
 }
 
-/*
 
-bool verificar_animo_recib(int animo_verificar){
-}
 char recibir_confianza(){
+	char confianza_recibida = DEF_NIVEL_CONFIANZA;
+
+	do{
+		printf(MSJ_RECIBIR_CONFIANZA);
+		scanf("%c", &confianza_recibida);
+		if(confianza_recibida == CONFIANZA_BAJA || confianza_recibida == CONFIANZA_MEDIA || confianza_recibida == CONFIANZA_ALTA){
+			printf("Ingreso de confianza aceptado\n");
+		}else{
+			printf(MSJ_MAL_INGRESO,160);
+		}
+	}while ( ((confianza_recibida!=CONFIANZA_BAJA ) && (confianza_recibida!=CONFIANZA_MEDIA)) && (confianza_recibida!=CONFIANZA_ALTA));
+	
+	return confianza_recibida;
+
 }
-bool verificar_nivel_confianza_recib(char confianza_recibida){
-}
+
+
 float recibir_fuerza_psiquica(int nivel_animo, char nivel_confianza){
 }
 float calcular_fuerza(int nivel_animo, float multiplicador_confianza){
