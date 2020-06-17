@@ -25,6 +25,7 @@ int main(){
 
 	printf("\nFuerza ps%cquica obtenida: %f\n",161,fuerza_psiquica);
 
+	resultado_enfrentamiento(fuerza_psiquica);
 
 	return 0;
 }
