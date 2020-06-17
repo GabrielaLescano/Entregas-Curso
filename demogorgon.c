@@ -1,10 +1,10 @@
 #include "demogorgon.h"
 
 
-#define MSJ_ENFRENTAMIENTO "\n\nEl enfrentamiento est%c por comenzar\n",160
+#define MSJ_ENFRENTAMIENTO "\n\nEl enfrentamiento est%c por comenzar\n"
 
-#define MSJ_MAL_INGRESO "Ingreso no v%clido\n",160
-#define MSJ_RECIBIR_ANIMO "\nIngrese el %cnimo de El(Eleven) en un rango del 1 al 100 inclusive\n",160
+#define MSJ_MAL_INGRESO "Ingreso no v%clido\n"
+#define MSJ_RECIBIR_ANIMO "\nIngrese el %cnimo de El(Eleven) en un rango del 1 al 100 inclusive\n"
 
 const int DEF_ANIMO = 0;
 const int MIN_ANIMO = 1;
@@ -36,20 +36,20 @@ const float MIN_GANO = 67.0F;
 const float MAX_GANO = 370.0F;
 const float VALOR_GANO_JUSTO = 65.0F;
 
-#define MSJ_ERROR_CALCULAR_FUERZA "Algo mali%c sal",162
+#define MSJ_ERROR_CALCULAR_FUERZA "Algo mali%c sal"
 
 
-#define MSJ_GANO "\n\n\n\n\tEleven cont%c con su mayor %cnimo y con la confianza de sus amigos\n\tpor lo que logr%c vencer al Demogorgon con su fuerza ps%cquica!!!\n\n\n\t \n"162,160,162,161
+#define MSJ_GANO "\n\n\n\n\tEleven cont%c con su mayor %cnimo y con la confianza de sus amigos\n\tpor lo que logr%c vencer al Demogorgon con su fuerza ps%cquica!!!\n\n\n\t \n"
 
-#define MSJ_GANO_JUSTO "\n\n\n\n\tEleven cont%c con la fuerza ps%cquica justa para poder vencer al Demogorgon\n\tpor lo que qued%c realmente d%cbil luego del enfrentamiento!\n\n\n"162,161,162,130
+#define MSJ_GANO_JUSTO "\n\n\n\n\tEleven cont%c con la fuerza ps%cquica justa para poder vencer al Demogorgon\n\tpor lo que qued%c realmente d%cbil luego del enfrentamiento!\n\n\n"
 
-#define MSJ_RESULT_DESC "\n\n\n\n\tEleven enfrent%c al Demogorgon pero no parec%ca que lo pudiera vencer\n\thasta que una luz cubri%c todo el lugar desapareciendo al Demogorgon junto a Eleven\n\n\tFin.. ?\n\n"102,161,162
+#define MSJ_RESULT_DESC "\n\n\n\n\tEleven enfrent%c al Demogorgon pero no parec%ca que lo pudiera vencer\n\thasta que una luz cubri%c todo el lugar desapareciendo al Demogorgon junto a Eleven\n\n\tFin.. ?\n\n"
 
 
 
 void comenzar_enfrentamiento(){
 
-	printf(MSJ_ENFRENTAMIENTO);
+	printf(MSJ_ENFRENTAMIENTO,160);
 	
 }
 
@@ -57,11 +57,11 @@ int recibir_animo(){
 	int animo_recibido = DEF_ANIMO;
 	do{
 
-		printf(MSJ_RECIBIR_ANIMO);
+		printf(MSJ_RECIBIR_ANIMO,160);
 		scanf("%i", &animo_recibido);
 
 		if( (animo_recibido < MIN_ANIMO ) || (animo_recibido > MAX_ANIMO) ){
-		printf (MSJ_MAL_INGRESO);
+		printf (MSJ_MAL_INGRESO,160);
 		}else{
 			printf("Ingreso aceptado\n");
 		}
@@ -79,7 +79,7 @@ char recibir_confianza(){
 		if(confianza_recibida == CONFIANZA_BAJA || confianza_recibida == CONFIANZA_MEDIA || confianza_recibida == CONFIANZA_ALTA){
 			printf("Ingreso de confianza aceptado");
 		}else{
-			printf(MSJ_MAL_INGRESO);
+			printf(MSJ_MAL_INGRESO,160);
 		}
 	}while ( ((confianza_recibida!=CONFIANZA_BAJA ) && (confianza_recibida!=CONFIANZA_MEDIA)) && (confianza_recibida!=CONFIANZA_ALTA));
 	
@@ -111,9 +111,20 @@ float calcular_fuerza(int nivel_animo, float multiplicador_confianza){
 	return (nivel_animo * multiplicador_confianza);
 }
 
-/*
+
 void resultado_enfrentamiento(float fuerza_psiquica){
+	if (fuerza_psiquica<VALOR_GANO_JUSTO){
+		printf(MSJ_RESULT_DESC,162,161,162);
+
+	}else if( fuerza_psiquica>=VALOR_GANO_JUSTO && fuerza_psiquica<MIN_GANO ){
+		printf(MSJ_GANO_JUSTO,162,161,162,130);
+
+	}else if( fuerza_psiquica>=MIN_GANO && fuerza_psiquica<=MAX_GANO ){
+		printf(MSJ_GANO,162,160,162,161);
+	
+	}else{
+		printf(MSJ_ERROR_CALCULAR_FUERZA);
+	}
+	
+
 }
-char enfrentamiento(float fuerza_psiquica){
-}
-*/
