@@ -119,8 +119,11 @@ void resultado_enfrentamiento(float fuerza_psiquica){
 	}else if( fuerza_psiquica>=VALOR_GANO_JUSTO && fuerza_psiquica<MIN_GANO ){
 		printf(MSJ_GANO_JUSTO,162,161,162,130);
 
-	}else ( fuerza_psiquica>=MIN_GANO && fuerza_psiquica<=MAX_GANO ){
+	}else if( fuerza_psiquica>=MIN_GANO && fuerza_psiquica<=MAX_GANO ){
 		printf(MSJ_GANO,162,160,162,161);
+	
+	}else{
+		printf(MSJ_ERROR_CALCULAR_FUERZA);
 	
 	}
 	
